@@ -43,9 +43,9 @@
         @if (count($blogs) > 0)
             <div class="space-y-6">
                 @foreach ($blogs as $blog)
-                    <a href="{{ route('blog.show', $blog['slug']) }}" class="group ml-2 block border-l-1 border-dashed border-black pl-2">
+                    <a href="{{ route('blog.show', $blog['slug']) }}" class="pl-2">
                         <div
-                            class="mb-3 text-sm transition-colors group-hover:text-[var(--color-text-1)]"
+                            class="mb-3 text-sm transition-colors"
                         >
                             @if ($blog['date'])
                                 {{ date('F j, Y', strtotime($blog['date'])) }}
