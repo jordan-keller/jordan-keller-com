@@ -1,12 +1,92 @@
-@import 'tailwindcss';
+@import '@fontsource-variable/roboto-mono';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import 'tailwindcss';
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
-@theme {
-    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+@layer base {
+    html {
+        @apply bg-[var(--color-bg-1)] text-[var(--color-text-1)] text-base/9
+        
+    }
 
+        p {
+            @apply opacity-80 mix-blend-multiply text-base/9
+    }
+
+    a {
+        @apply text-[var(--color-text-2)] font-bold text-base/9
+
+    }
+
+    a:hover {
+        @apply underline underline-offset-4 text-base/9
+    }
+
+    a:visited {
+        @apply text-[var(--color-text-3)] text-base/9
+    }
+
+    h1 {
+        @apply font-header text-4xl/9 font-semibold opacity-70 mix-blend-multiply;
+        
+    }
+
+    h2 {
+        @apply font-header text-lg/9 font-semibold opacity-70 mix-blend-multiply;
+    }
+}
+
+@theme {
+    --font-sans:
+        'Libre Caslon Text', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono: 'Roboto Mono Variable';
+    --font-header: 'Roboto Mono Variable';
+
+    /* Light Theme */
+--color-light-1: #CFFF99; /* Page Background*/
+--color-light-2: #ff0000;
+--color-light-3: #00ff00;
+--color-light-text-1: #4C8F00; /* Text */
+--color-light-text-2: #000000; /* Links */
+--color-light-text-3: #000000; /* Visited link */
+--color-light-nav: #4C8F00;
+
+    /* Dark Theme */
+    --color-dark-1: #130F0C; /* Page Background*/
+    --color-dark-2: #5afff8;
+    --color-dark-3: #000033;
+    --color-dark-text-1: #dddddd; /* Text */
+    --color-dark-text-2: #cccccc; /* Links */
+    --color-dark-text-3: #ffffff; /* Visited link */
+    --color-dark-nav: #cacfb5;
+}
+
+/* Apply default light theme */
+:root {
+    --color-bg-1: var(--color-light-1); /* Darkest: Main text and active nav link color */
+    --color-bg-2: var(--color-light-2); /* Medium: */
+    --color-bg-3: var(--color-light-3); /* Highlight: */
+    --color-text-1: var(--color-light-text-1);
+    --color-text-2: var(--color-light-text-2); /* Links color */
+    --color-text-3: var(--color-light-text-3); /* Active links color */
+    --color-nav: var(--color-light-nav); /* Color of 'Menu' text */
+}
+
+/* Dark theme class */
+.theme-dark {
+    --color-bg-1: var(--color-dark-1); /* Lightest: Main text and active nav link color */
+    --color-bg-2: var(--color-dark-2); /* Medium: */
+    --color-bg-3: var(--color-dark-3); /* Highlight: */
+    --color-text-1: var(--color-dark-text-1);
+    --color-text-2: var(--color-dark-text-2); /* Links */
+    --color-text-3: var(--color-dark-text-3); /* Visited Links */
+    --color-nav: var(--color-dark-nav); /* Color of 'Menu' text */
+}
+
+/* After your @theme block */
+body {
+    font-family: var(--font-mono);
 }

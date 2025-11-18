@@ -8,16 +8,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Light palette
-        light1: "#f7fafc", // very light
-        light2: "#edf2f7",
-        light3: "#e2e8f0",
-
-        // Dark palette
-        dark1: "#1a202c", // very dark
-        dark2: "#2d3748",
-        dark3: "#4a5568",
-      },
+                'theme-bg-1': 'var(--color-bg-1)',
+                'theme-bg-2': 'var(--color-bg-2)',
+                'theme-bg-3': 'var(--color-bg-3)',
+                'theme-text-1': 'var(--color-text-1)',
+                'theme-text-2': 'var(--color-text-2)',
+            },
+            
       backgroundImage: {
         '35mm': "url('/images/35mm.jpg')",
       },

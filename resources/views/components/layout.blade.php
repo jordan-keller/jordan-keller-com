@@ -1,4 +1,4 @@
-<html lang="en" class="h-screen w-5/6 md:w-4/6 lg:w-5/6 justify-center mx-auto md:p-4 lg:p-2 my-6">
+<html lang="en" class="w-full justify-center mx-auto">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -6,30 +6,60 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-screen flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-4">
+<body class="flex flex-col lg:flex-row lg:flex-row-reverse min-h-screen">    
+    
+    <div class="bg-[var(--color-bg-1)] w-full lg:w-1/6 h-auto lg:h-screen lg:max-h-screen sticky top-0 self-start z-100 flex flex-col pb-1 overflow-hidden">
+        <x-nav />
+    </div>
 
-    <nav class="text-blue-300 ovelrine mx-auto lg:mx-2 w-full lg:w-1/6 p-4 border-dashed border-black border-1">
-        <!-- Menu toggle button - visible only on small screens -->
-        <button 
-            id="menuToggle" 
-            class="w-full lg:hidden text-center font-semibold hover:bg-blue-100 p-2"
-            onclick="document.getElementById('navLinks').classList.toggle('hidden')"
-        >
-        Navigate
-        </button>
-        
-        <!-- Navigation links -->
-        <div id="navLinks" class="flex-col hidden flex lg:flex justify-between items-left">
-            <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>     
-            <x-nav-link href="/blog" :active="request()->is('blog')">Blog</x-nav-link>
-            <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
-        </div>
-    </nav>
-
-    <main class="h-full mx-auto space-y-2 border-dashed border-1 p-6 lg:w-5/6 w-full font-mono">
-        {{ $slot }}
+    <main class="flex-1 px-4 mt-6 lg:mt-[5%] lg:mx-[5%]">
+        <h1 class="my-6">{{ $heading }}</h1>
+        <div class="text-md space-y-4">{{ $slot }}</div>
     </main>
 
+        <div class="absolute bottom-6 right-6 z-150">
+        <a id="theme-switcher" class="cursor-pointer mx-auto text-xs mt-4 text-[var(--color-text-2)] hover:text-white/70">
+            lights out
+        </a>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const themeBtn = document.getElementById('theme-switcher');
+        const html = document.documentElement;
+        
+        // Function to update theme text
+        function updateThemeText() {
+            if(html.classList.contains('theme-dark')) {
+                themeBtn.textContent = 'lights on';
+            } else {
+                themeBtn.textContent = 'lights off';
+            }
+        }
+        
+        // Theme persistence with localStorage
+        if(localStorage.getItem('theme') === 'dark') {
+            html.classList.add('theme-dark');
+        }
+        
+        // Set initial text
+        updateThemeText();
+        
+        themeBtn?.addEventListener('click', function() {
+            html.classList.toggle('theme-dark');
+            
+            // Update button text
+            updateThemeText();
+            
+            // Save preference
+            if(html.classList.contains('theme-dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    });
+    </script>
 
 </body>
 </html>

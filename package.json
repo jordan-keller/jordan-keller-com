@@ -7,6 +7,11 @@
         "dev": "vite"
     },
     "dependencies": {
+        "@fontsource-variable/roboto-mono": "^5.2.8",
+        "@fontsource/abril-fatface": "^5.2.7",
+        "@fontsource/league-gothic": "^5.2.8",
+        "@fontsource/libre-caslon-condensed": "^5.2.5",
+        "@fontsource/libre-caslon-text": "^5.2.7",
         "axios": "^1.7.4",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^2.0",
@@ -20,6 +25,9 @@
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.19",
         "@tailwindcss/vite": "^4.1.16",
+        "prettier": "^3.6.2",
+        "prettier-plugin-blade": "^2.1.21",
+        "prettier-plugin-tailwindcss": "^0.7.1",
         "tailwindcss": "^4.1.16"
     }
 }

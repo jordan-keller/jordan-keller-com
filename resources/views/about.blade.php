@@ -1,4 +1,9 @@
 <x-layout>
-   <x-slot:heading>About</x-slot:heading>
- <p class="font-bold">Random Patterns</p> is an open notebook/blog on making meaning, not just art. Here, I explore and document the gloriously messy process of a creative life: the study, craft, and play that underpins a song, album, movie, and story that moves you.
+    <x-slot:heading>About</x-slot>
+    I'm Jordan Keller.
+    <br />
+    <br />
+
+    I write stuff. I produce stuff. Mostly songs and albums. Sometimes scripts and movies. I'm interested in I'm working
+    on songs for a new album. I recently moved to Grand Rapids. I'm getting into Laravel and full-stack web development.
 </x-layout>
