@@ -18,7 +18,3 @@ Route::get('/blog/{slug}', [Blog::class, 'show'])->name('blog.show');
 
 Route::get('/blog', [Blog::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [Blog::class, 'show'])->name('blog.show');
-
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');

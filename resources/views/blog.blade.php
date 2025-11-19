@@ -41,46 +41,42 @@
 
         {{-- Blog Posts List --}}
         @if (count($blogs) > 0)
-            <div class="space-y-6">
+            <div class="space-y-6 hover:border-l p-4">
                 @foreach ($blogs as $blog)
-                    <a href="{{ route('blog.show', $blog['slug']) }}" class="pl-2">
-                        <div
-                            class="mb-3 text-sm transition-colors"
-                        >
-                            @if ($blog['date'])
-                                {{ date('F j, Y', strtotime($blog['date'])) }}
-                            @endif
-                        </div>
+                    <a href="{{ route('blog.show', $blog['slug']) }}" class="pl-2 text-[var(--color-text-1)] text:text-[var(--color-nav)]">
+                       
 
                         <h2
-                            class="mb-2 text-2xl font-medium transition-colors duration-100 group-hover:text-[var(--color-text-1)]"
+                            class="mb-2 text-2xl"
                         >
                             {{ $blog['title'] }}
                         </h2>
-                        <p
-                            class="mb-4 text-sm transition-colors duration-200 group-hover:text-[var(--color-text-1)]"
-                        >
+                        <p class="mb-4 text-sm transition-colors duration-200 group-hover:text-[var(--color-text-1)]">
                             {{ $blog['excerpt'] }}
                         </p>
 
                         @if (! empty($blog['tags']))
                             <div class="flex flex-wrap gap-2">
                                 @foreach ($blog['tags'] as $tag)
-                                    <span class="rounded px-2 py-1 text-xs opacity-80">
-                                        #{{ $tag }}
-                                    </span>
+                                    <span class="rounded px-2 py-1 text-xs opacity-80">#{{ $tag }}</span>
                                 @endforeach
                             </div>
                         @endif
 
                         {{-- Syndication Footer --}}
                         @if (! empty($blog['syndication']))
-                            <div class="mt-3 pt-3">
-                                <div class="flex items-center gap-2 text-xs">
+                            <div class="mt-3 pt-3 flex flex-row justify-between">
+                                 <div class="text-sm">
+                                    @if ($blog['date'])
+                                        {{ date('F j, Y', strtotime($blog['date'])) }}
+                                    @endif
+                                 </div>
+
+                                <div class="flex gap-1 text-xs">
                                     <span>Also posted on:</span>
                                     <div class="flex flex-wrap gap-1">
                                         @foreach ($blog['syndication'] as $channel)
-                                            <span class="rounded bg-gray-100 px-2 py-1 text-gray-700">
+                                            <span class="text-[var(--color-bg-1)]/70 px-2 py-1 bg-[var(--color-text-1)] mx-1">
                                                 {{ $channel }}
                                             </span>
                                         @endforeach
@@ -92,9 +88,7 @@
                 @endforeach
             </div>
         @else
-            <p>
-                No blog posts found{{ $selectedTag ? ' with tag "' . $selectedTag . '"' : '' }}.
-            </p>
+            <p>No blog posts found{{ $selectedTag ? ' with tag "' . $selectedTag . '"' : '' }}.</p>
         @endif
     </div>
 </x-layout>

@@ -1,30 +1,27 @@
-<div class="flex h-full w-full flex-col">
-         <div class="relative text-right mx-2 my-2">
-        <a id="theme-switcher" class="cursor-pointer mx-auto text-xs mt-4 text-[var(--color-text-2)]/50 hover:text-[var(--color-text-1)/100]">
-            lights out
-        </a>
-        </div>
-
-    <div class="flex-shrink-0 my-auto">
-        <!-- Accordion Button -->
+<div class="flex h-full w-full flex-col align-top">
+    
+    <!-- Header Row -->
+    <div class="flex-shrink-0 mt-4 mx-4 flex justify-between">
+        <!-- Menu Button -->
         <button
             id="menuToggle"
-            class="sticky z-100 w-full cursor-pointer p-1 text-center font-header text-lg tracking-tight uppercase lg:hidden font-semibold flex-grow"
+            class="cursor-pointer text-left font-header text-lg tracking-tight lg:hidden font-semibold"
             onclick="document.getElementById('navLinks').classList.toggle('hidden')"
         >
-            Menu
+            Index
         </button>
 
-        <!-- Navigation links -->
-        <div
-            id="navLinks"
-            class="flex hidden flex-col justify-between lg:flex text-[var(--color-nav)]"
-        >
-            <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-            <x-nav-link href="/blog" :active="request()->is('blog')">Blog</x-nav-link>
-            <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
-        </div>
-    
+        <!-- Lights Out - Aligned to right -->
+
+    </div>
+
+    <!-- Navigation Links (separate from header) -->
+    <div
+        id="navLinks"
+        class="flex hidden flex-col justify-between lg:flex text-[var(--color-nav)] mt-2 ml-6"
+    >
+        <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+        <x-nav-link href="/blog" :active="request()->is('blog')">Blog</x-nav-link>     
     </div>
 
     <script>
@@ -37,7 +34,7 @@
             if(html.classList.contains('theme-dark')) {
                 themeBtn.textContent = 'lights on';
             } else {
-                themeBtn.textContent = 'lights off';
+                themeBtn.textContent = 'lights out';
             }
         }
         

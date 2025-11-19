@@ -7,34 +7,55 @@
 
 @layer base {
     html {
-        @apply bg-[var(--color-bg-1)] text-[var(--color-text-1)] text-base/9
-        
+        @apply bg-[var(--color-bg-1)] text-base/7 text-[var(--color-text-1)];
     }
 
-        p {
-            @apply text-base/9
+    p {
+        @apply text-base/7;
     }
 
-    a {
-        @apply text-[var(--color-text-2)] font-bold text-base/9
-
+    p a {
+        @apply text-base/7 font-bold bg-[var(--color-text-1)] text-[var(--color-text-2)] px-1;
     }
 
-    a:hover {
-        @apply underline underline-offset-4 text-base/9
+    p a:hover {
+        @apply text-base/7 underline underline-offset-4;
     }
 
-    a:visited {
-        @apply text-[var(--color-text-3)] text-base/9
+    p a:visited {
+        @apply text-base/7 text-[var(--color-text-3)];
     }
 
     h1 {
-        @apply font-header text-4xl/9 font-semibold opacity-80 mr-4;
-        
+        @apply font-header mr-4 text-4xl/9 font-semibold opacity-80;
     }
 
     h2 {
-        @apply font-header text-lg/9 font-semibold opacity-80 mr-4;
+        @apply font-header mr-4 text-lg/9 font-semibold opacity-80;
+    }
+
+    .markdown-content {
+    white-space: pre-line;
+}
+    footer {
+        @apply bg-[var(--color-bg-2)] text-[var(--color-text-2)];
+    }
+
+        footer li {
+        @apply text-xs;
+    }
+
+    /* Target links specifically within footer */
+    footer a {
+        @apply text-[var(--color-text-2)] font-normal text-xs; /* Remove bold, use footer text color */
+    }
+
+    footer a:hover {
+        @apply text-[var(--color-text-2)] underline underline-offset-2 text-xs; /* Ensure hover uses footer color */
+    }
+
+    footer a:visited {
+        @apply text-[var(--color-text-2)] opacity-75 text-xs; /* Use opacity for visited state instead of different color */
     }
 }
 
@@ -46,22 +67,22 @@
     --font-header: 'Roboto Mono Variable';
 
     /* Light Theme */
---color-light-1: #CFFF99; /* Page Background*/
---color-light-2: #ff0000;
---color-light-3: #00ff00;
---color-light-text-1: #4C8F00; /* Text */
---color-light-text-2: #000000; /* Links */
---color-light-text-3: #000000; /* Visited link */
---color-light-nav: #4C8F00;
+    --color-light-1: #cfff99; /* Page Background*/
+    --color-light-2: #141a0e;
+    --color-light-3: #00ff00;
+    --color-light-text-1: #4c8f00; /* Text */
+    --color-light-text-2: #cfff99; /* Links */
+    --color-light-text-3: #141a0e; /* Visited link */
+    --color-light-nav: #4c8f00;
 
     /* Dark Theme */
-    --color-dark-1: #141A0E; /* Page Background*/
-    --color-dark-2: #5afff8;
+    --color-dark-1: #141a0e; /* Page Background*/
+    --color-dark-2: #cfff99;
     --color-dark-3: #000033;
-    --color-dark-text-1: #CFFF99; /* Text */
-    --color-dark-text-2: #cccccc; /* Links */
-    --color-dark-text-3: #ffffff; /* Visited link */
-    --color-dark-nav: #cacfb5;
+    --color-dark-text-1: #cfff99; /* Text */
+    --color-dark-text-2: #141a0e; /* Footer Links */
+    --color-dark-text-3: #cfff99; /* Visited link */
+    --color-dark-nav: #cfff99;
 }
 
 /* Apply default light theme */
