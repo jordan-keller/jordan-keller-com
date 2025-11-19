@@ -31,7 +31,8 @@ It took a year or so to get here. But I finally found the framework I'm going to
 
 S/O to [Laracasts](http://www.laracasts.com), [Tighten](http://www.tighten.com), and [TailwindCSS](http://www.tailwindcss.com)
 
-## Next Build
+
+## Next Play
 - [ ] A Random Introduction page
   - Develop feature for on page load, the page should grab (at random) a different file from a folder I'll specify
   - Develop a feature where the theme changes dynamically too. That 'layout.blade.php' should have a spot where you open up php to select a theme from app.css
@@ -40,3 +41,11 @@ S/O to [Laracasts](http://www.laracasts.com), [Tighten](http://www.tighten.com),
   - 'Filmmaking' page
   - 'Very Important Artist' page
   - 'Big Important Business Boy' page
+  - Eventually Use 
+
+  ## Next Learn
+ - Learn how to use frontmatter to dynamically populate metadata for shared pages on Bluesky
+
+  ## Today's nagging dumb question
+  - How do you get control over the formatting of your .md files in a basic Laravel app. Is it something to do with the <prose> tag? I want to make my double-returns double-returns, and I want control over the formatting of my lists. Is that in app.css? I'll bet it's in app.css.
+

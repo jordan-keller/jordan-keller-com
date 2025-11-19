@@ -26,6 +26,18 @@
         @apply text-base/7 text-[var(--color-text-3)];
     }
 
+    .prose {
+        @apply whitespace-pre-line;
+    }
+
+    .prose li {
+        @apply whitespace-pre-line;
+    }
+
+    .prose ul ul {
+    @apply whitespace-pre-line;
+}
+
     h1 {
         @apply font-header mr-4 text-4xl/9 font-semibold opacity-80;
     }
