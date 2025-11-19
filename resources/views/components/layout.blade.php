@@ -2,7 +2,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jordan Keller's {{ $heading }} Page</title>
+    <title>Jordan Keller: {{ $heading }}</title>
+    <meta name="description" content="{{ $description ?? 'I\'m Jordan Keller. I\'m a writer, musician, music/video producer, filmmaker in Grand Rapids, Michigan.' }}">
+    <meta name="author" content="Jordan Keller">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Hi. I'm Jordan Keller.">
+    <meta property="og:description" content="{{ $description ?? 'A writer, musician, music/video producer, filmmaker in Grand Rapids, MI.' }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <!-- Add this when you have a social image: <meta property="og:image" content="{{ asset('images/social-preview.jpg') }}"> -->
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 

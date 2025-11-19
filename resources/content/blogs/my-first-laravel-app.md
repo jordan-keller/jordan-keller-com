@@ -30,3 +30,13 @@ But on the off chance I want to start getting fancy, I can already see how Larav
 It took a year or so to get here. But I finally found the framework I'm going to use as my starting point for all projects going forward.
 
 S/O to [Laracasts](http://www.laracasts.com), [Tighten](http://www.tighten.com), and [TailwindCSS](http://www.tailwindcss.com)
+
+## Next Build
+- [ ] A Random Introduction page
+  - Develop feature for on page load, the page should grab (at random) a different file from a folder I'll specify
+  - Develop a feature where the theme changes dynamically too. That 'layout.blade.php' should have a spot where you open up php to select a theme from app.css
+- [ ] Add 'Music' page
+- [ ] Eventually:
+  - 'Filmmaking' page
+  - 'Very Important Artist' page
+  - 'Big Important Business Boy' page
