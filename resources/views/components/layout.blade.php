@@ -2,7 +2,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jordan Keller: {{ $heading }}</title>
+ <title>
+    @if(request()->is('/') || $heading === 'Hi, I\'m Jordan Keller' || $heading === 'Jordan-Keller.com')
+        Hi, I'm Jordan Keller.
+    @else
+        {{ $heading }} | Jordan-Keller.com
+    @endif
+</title>
     <meta name="description" content="{{ $description ?? 'I\'m Jordan Keller. I\'m a writer, musician, music/video producer, filmmaker in Grand Rapids, Michigan.' }}">
     <meta name="author" content="Jordan Keller">
     
