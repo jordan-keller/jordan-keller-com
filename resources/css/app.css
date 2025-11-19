@@ -7,7 +7,7 @@
 
 @layer base {
     html {
-        @apply bg-[var(--color-bg-1)] text-base/7 text-[var(--color-text-1)];
+        @apply bg-[var(--color-bg-1)] text-base/7 text-[var(--color-text-1)] w-full;
     }
 
     p {
@@ -26,16 +26,27 @@
         @apply text-base/7 text-[var(--color-text-3)];
     }
 
-    .prose {
-        @apply whitespace-pre-line;
-    }
 
-    .prose li {
-        @apply whitespace-pre-line;
-    }
+.prose {
+    @apply whitespace-pre-line p-4;
+}
 
-    .prose ul ul {
+.prose {
     @apply whitespace-pre-line;
+}
+
+.prose ul,
+.prose ol, 
+.prose li {
+    @apply whitespace-normal;
+}
+
+.prose ul {
+    @apply list-disc ml-12;
+}
+
+.prose ol {
+    @apply list-decimal;
 }
 
     h1 {
