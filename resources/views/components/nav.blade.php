@@ -1,27 +1,10 @@
-<div class="flex h-full w-full flex-col align-top">
-    
-    <!-- Header Row -->
-    <div class="flex-shrink-0 mt-4 mx-4 flex justify-between">
-        <!-- Menu Button -->
-        <button
-            id="menuToggle"
-            class="cursor-pointer text-left font-header text-lg tracking-tight lg:hidden font-semibold"
-            onclick="document.getElementById('navLinks').classList.toggle('hidden')"
-        >
-            Index
-        </button>
-
-        <!-- Lights Out - Aligned to right -->
-
-    </div>
-
-    <!-- Navigation Links (separate from header) -->
-    <div
-        id="navLinks"
-        class="flex hidden flex-col justify-between lg:flex text-[var(--color-nav)] mt-2 ml-6"
+<div class="flex h-full w-full">
+    <div class="flex flex-row justify-between text-[var(--color-nav)] py-3 mx-auto gap-4"
     >
-        <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-        <x-nav-link href="/blog" :active="request()->is('blog')">Blog</x-nav-link>     
+        <x-nav-link href="/lyrics" :active="request()->is('lyrics') || request()->is('lyrics/*')">Lyrics</x-nav-link>   
+        <x-nav-link href="/videos" :active="request()->is('videos')">Videos</x-nav-link>     
+        <x-nav-link href="/credits" :active="request()->is('credits')">Credits</x-nav-link>   
+        <x-nav-link href="/listen" :active="request()->is('listen')">Listen</x-nav-link>     
     </div>
 
     <script>
@@ -62,11 +45,4 @@
     });
     </script>
     </div>
-        <!--
-    <img
-        src="/images/jordan-keller-headshot.jpg"
-        alt="Jordan Keller"
-        class="opacity-40 min-h-0 w-full flex-grow object-cover object-[60%_40%] lg:object-[70%_30%] mix-blend-soft-light"
-    />
-    -->
 </div>

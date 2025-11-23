@@ -4,16 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>
     @if(request()->is('/') || $heading === 'Hi, I\'m Jordan Keller' || $heading === 'Jordan-Keller.com')
-        Hi, I'm Jordan Keller.
+        Redshift
     @else
-        {{ $heading }} | Jordan-Keller.com
+        {{ $heading }} | theokaylakes.com
     @endif
 </title>
-    <meta name="description" content="{{ $description ?? 'I\'m Jordan Keller. I\'m a writer, musician, music/video producer, filmmaker in Grand Rapids, Michigan.' }}">
+    <meta name="description" content="{{ $description ?? 'The Okay Lakes' }}">
     <meta name="author" content="Jordan Keller">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Hi. I'm Jordan Keller.">
+    <meta property="og:title" content="The Okay Lakes">
     <meta property="og:description" content="{{ $description ?? 'A writer, musician, music/video producer, filmmaker in Grand Rapids, MI.' }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
@@ -29,26 +29,52 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="flex flex-col min-h-screen">    
-    <div class="flex flex-col lg:flex-row flex-1 my-6">
-         <main class="w-full lg:w-5/6 px-4 mt-6 lg:mt-[5%] lg:mx-[5%] order-2 lg:order-2">
-            <h1 class="my-6">{{ $heading }}</h1>
-            <div class="text-md space-y-4">{{ $slot }}</div>
-        </main>
+<body class="flex flex-col min-h-screen">  
+  <div 
+    class="fixed inset-0 -z-10 bg-cover bg-center opacity-70"
+    style="background-image: url('/images/layout_bg.jpg');"
+  ></div>
 
-        <nav class="bg-[var(--color-bg-1)] w-1/6 h-auto lg:h-screen lg:max-h-screen sticky top-0 self-start z-50 pb-1 overflow-hidden lg:order-2">
-            <x-nav />
-        </nav>
+
+
+<section class="w-screen h-auto">
+    <div class="flex flex-col w-full mx-auto mt-6 lg:mt-12">
+       <a href="href="/" :active="request()->is('/')">
+        <img
+          src="/images/logo_the-okay-lakes.png"
+          alt="The Okay Lakes Logo"
+          width="300"
+          height="80"
+          class="object-contain max-w-[300px] mx-auto py-1"
+          loading="eager"
+        />
+      
+        <img
+          src="/images/logo_redshift.png"
+          alt="Redshift Logo"
+          width="400"
+          height="80"
+          class="object-contain w-full max-w-[420px] mx-auto py-1"
+          loading="eager"
+        />
+         </a>
     </div>
+</section>
+
+        <nav class="w-full p-0 my-6">
+        <x-nav />
+        </nav>
+
+        <main class="flex-1 w-full max-w-5/6 mx-auto">
+        {{ $slot }}
+        </main>
 
     <footer class="w-full py-4 px-4 mt-auto">
         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
             <ul class="flex flex-wrap gap-4">
                 <li class="text-left">&copy;2024 Jordan Keller <br /> All rights reserved.</li>
                 <li><a href="mailto:hi@jordan-keller.com">hi@jordan-keller.com</a></li>
-                <li><a href="https://bsky.app/profile/jordan-keller.com">Bluesky</a></li>
-                <li><a href="https://letterboxd.com/jordanmkeller/">Letterboxd</a></li>
-                <li><a href="https://www.linkedin.com/in/jordan-m-keller/">Linkedin</a></li>
+                <li><a href="https://www.instagram.com/theokaylakes">Instagram</a></li>
             </ul>
            
             <div>

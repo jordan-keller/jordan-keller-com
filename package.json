@@ -7,6 +7,7 @@
         "dev": "vite"
     },
     "dependencies": {
+        "@fontsource-variable/eb-garamond": "^5.2.7",
         "@fontsource-variable/roboto-mono": "^5.2.8",
         "@fontsource/abril-fatface": "^5.2.7",
         "@fontsource/league-gothic": "^5.2.8",

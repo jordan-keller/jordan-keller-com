@@ -1,6 +1,14 @@
-@import '@fontsource-variable/roboto-mono';
+@import '@fontsource-variable/eb-garamond';
 
 @import 'tailwindcss';
+
+@font-face {
+    font-family: 'RoyalPrintingCapsItalic';
+    src: url('/fonts/RoyalPrintingCapsItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -11,24 +19,23 @@
     }
 
     p {
-        @apply text-base/7;
     }
 
     p a {
-        @apply text-base/7 font-bold bg-[var(--color-text-1)] text-[var(--color-text-2)] px-1;
+        @apply font-normal bg-[var(--color-text-1)] text-[var(--color-text-2)];
     }
 
     p a:hover {
-        @apply text-base/7 underline underline-offset-4;
+        @apply underline underline-offset-4;
     }
 
     p a:visited {
-        @apply text-base/7 text-[var(--color-text-3)];
+        @apply text-[var(--color-text-3)];
     }
 
 
 .prose {
-    @apply whitespace-pre-line p-4;
+    @apply whitespace-pre-line;
 }
 
 .prose {
@@ -50,18 +57,24 @@
 }
 
     h1 {
-        @apply font-header mr-4 text-4xl/9 font-semibold opacity-80;
+        @apply mr-4 text-4xl font-semibold opacity-80;
+        font-family: 'RoyalPrintingCapsItalic', serif; /* Direct application */
     }
 
     h2 {
-        @apply font-header mr-4 text-lg/9 font-semibold opacity-80;
+        @apply mr-4 text-lg font-semibold opacity-80;
+        font-family: 'RoyalPrintingCapsItalic', serif; /* Direct application */
+    }
+
+    .btn {
+        @apply uppercase text-lg tracking-wider border-1 transition duration-500 hover:bg-white/20;
     }
 
     .markdown-content {
     white-space: pre-line;
 }
     footer {
-        @apply bg-[var(--color-bg-2)] text-[var(--color-text-2)];
+        @apply bg-[var(--color-bg-2)] text-[var(--color-text-2)] text-xs;
     }
 
         footer li {
@@ -70,42 +83,31 @@
 
     /* Target links specifically within footer */
     footer a {
-        @apply text-[var(--color-text-2)] font-normal text-xs; /* Remove bold, use footer text color */
+        @apply text-[var(--color-text-2)];
     }
 
     footer a:hover {
-        @apply text-[var(--color-text-2)] underline underline-offset-2 text-xs; /* Ensure hover uses footer color */
+        @apply text-[var(--color-text-2)] underline underline-offset-2; /* Ensure hover uses footer color */
     }
 
     footer a:visited {
-        @apply text-[var(--color-text-2)] opacity-75 text-xs; /* Use opacity for visited state instead of different color */
+        @apply text-[var(--color-text-2)] opacity-75; /* Use opacity for visited state instead of different color */
     }
 }
 
 @theme {
-    --font-sans:
-        'Libre Caslon Text', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-serif:
+        'EB Garamond Variable', ui-serif, system-ui, serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-mono: 'Roboto Mono Variable';
-    --font-header: 'Roboto Mono Variable';
 
-    /* Light Theme */
-    --color-light-1: #cfff99; /* Page Background*/
-    --color-light-2: #141a0e;
+    /* Stalker Theme */
+    --color-light-1: #000000; /* Page Background*/
+    --color-light-2: #0B161F;
     --color-light-3: #00ff00;
-    --color-light-text-1: #4c8f00; /* Text */
-    --color-light-text-2: #cfff99; /* Links */
+    --color-light-text-1: #ffffff; /* Text */
+    --color-light-text-2: #5AFFF8; /* Links */
     --color-light-text-3: #141a0e; /* Visited link */
-    --color-light-nav: #4c8f00;
-
-    /* Dark Theme */
-    --color-dark-1: #141a0e; /* Page Background*/
-    --color-dark-2: #cfff99;
-    --color-dark-3: #000033;
-    --color-dark-text-1: #cfff99; /* Text */
-    --color-dark-text-2: #141a0e; /* Footer Links */
-    --color-dark-text-3: #cfff99; /* Visited link */
-    --color-dark-nav: #cfff99;
+    --color-light-nav: #ffffff;
 }
 
 /* Apply default light theme */
@@ -132,5 +134,6 @@
 
 /* After your @theme block */
 body {
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
 }
