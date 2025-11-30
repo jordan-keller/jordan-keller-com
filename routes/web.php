@@ -4,6 +4,9 @@ use App\Http\Controllers\Blog;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 
+Route::get('/test', function() {
+    return 'Basic test - working!';
+});
 
 Route::get('/', function () {
     return view('home');

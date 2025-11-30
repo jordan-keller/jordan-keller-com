@@ -89,7 +89,7 @@
     --font-mono: 'Roboto Mono Variable';
     --font-header: 'Roboto Mono Variable';
 
-    /* Light Theme */
+    /* Stalker Theme */
     --color-light-1: #cfff99; /* Page Background*/
     --color-light-2: #141a0e;
     --color-light-3: #00ff00;
@@ -98,7 +98,7 @@
     --color-light-text-3: #141a0e; /* Visited link */
     --color-light-nav: #4c8f00;
 
-    /* Dark Theme */
+    /* Terminal Theme */
     --color-dark-1: #141a0e; /* Page Background*/
     --color-dark-2: #cfff99;
     --color-dark-3: #000033;
@@ -106,6 +106,15 @@
     --color-dark-text-2: #141a0e; /* Footer Links */
     --color-dark-text-3: #cfff99; /* Visited link */
     --color-dark-nav: #cfff99;
+
+   /* Egg Theme */
+    --color-egg-1: #FAB70F; /* Page Background*/
+    --color-egg-2: #cfff99;
+    --color-egg-3: #000033;
+    --color-egg-text-1: #cfff99; /* Text */
+    --color-egg-text-2: #141a0e; /* Footer Links */
+    --color-egg-text-3: #cfff99; /* Visited link */
+    --color-egg-nav: #cfff99;
 }
 
 /* Apply default light theme */
