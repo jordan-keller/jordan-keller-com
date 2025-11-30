@@ -1,0 +1,112 @@
+---
+title: 'How to view data and route wildcards'
+author: Jordan
+date: 2025-11-18
+tags: [programming, laravel]
+excerpt: 'Is it overkill? Probably. Am I doing it anyway? Probably.'
+syndication: [Instagram, LinkedIn]
+---
+Today I'm learning how to pass data to a new view from markdown by building a Model called "Lyrics".
+
+I did this to build my first ever laravel site. I want to migrate the site for my music project to Laravel Forge. I'm going to use this as an opportunity to blog about/remember/try not to forget next time I need to perform this. I revisited these videos from Laracasts: https://laracasts.com/series/30-days-to-learn-laravel-11/episodes/7
+
+Specifically what we're going to learn here is how to pass an image from frontmatter to dynamically populate the slug of a url.
+
+## Step 1: Setup new route in 'web.php'
+
+Route::get('/lyrics', [lyrics::class, 'index'])->name('lyrics.index');
+Route::get('/lyrics/{slug}', [lyrics::class, 'show'])->name('lyrics.show');
+
+## Step 2: Create the Model
+Create a file at App\Http\Controllers\Lyrics:
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Spatie\YamlFrontMatter\YamlFrontMatter;
+use Illuminate\Support\Facades\File;
+
+class lyrics extends Controller
+{
+    public function index()
+    {
+        $path = resource_path('content/lyrics');
+        $lyrics = [];
+
+        if (File::isDirectory($path)) {
+            $files = File::files($path);
+            
+            foreach ($files as $file) {
+                if ($file->getExtension() === 'md') {
+                    $fileContents = File::get($file->getPathname());
+                    $document = YamlFrontMatter::parse($fileContents);
+                    
+                    $lyrics[] = [
+                        'slug' => $file->getFilenameWithoutExtension(),
+                        'title' => $document->title ?? 'Untitled',
+                        'album' => $document->author ?? 'Unknown',
+                        'image' => $document->date ?? null,
+                        'track' => $document->tags ?? [],
+                        'body' => $document->body(),
+                    ];
+                }
+            }
+        }
+
+        $allTags = [];
+        $selectedTag = null;
+
+        return view('lyrics', compact('lyrics', 'allTags', 'selectedTag'));
+    } // <-- This closing brace was missing
+
+    public function show($slug)
+    {
+        $filePath = resource_path("content/lyrics/{$slug}.md");
+
+        if (!File::exists($filePath)) {
+            abort(404);
+        }
+
+        $fileContents = File::get($filePath);
+        $document = YamlFrontMatter::parse($fileContents);
+
+        $lyrics = [
+            'title' => $document->title,
+            'album' => $document->album,
+            'image' => $document->image,
+            'track' => $document->track ?? [],
+            'body' => $document->body(),
+        ];
+
+        return view('lyrics.show', compact('lyrics'));
+    }
+}
+
+
+Add use App\Http\Controllers\Lyrics to web.php
+
+##Step 3: Edit /lyrics/show.blade.php
+I want to dynamically call in the song art to be the background of each page
+
+<x-layout>
+    <x-slot:heading>{{ $lyrics['title'] }}</x-slot>
+  <div 
+    class="fixed inset-0 -z-10 bg-cover bg-center opacity-70"
+    style="background-image: url('{{ $lyrics['image'] }}');"
+  ></div>
+
+    <article class="max-w-auto">
+        <div class="mb-6">
+            <p class="text-2xl opacity-80">{{ $lyrics['title'] }}</p>
+            <p class="opacity-50">
+            </p>
+
+
+        <div class="prose prose-lg max-w-none">
+
+        </div>
+    </article>
+</x-layout>
+
+##Step 4: 

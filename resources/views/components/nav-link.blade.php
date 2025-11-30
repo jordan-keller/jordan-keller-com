@@ -1,9 +1,9 @@
 @props(['active' => false])
 
 <a
-    class="{{ $active ? 'text-[var(--color-text-1)] underline underline-offset-4' : 'text-[var(--color-nav)]' }} group w-auto text-left uppercase lg:mx-3 lg:text-right"
+    class="text-lg uppercase {{ $active ? 'text-[var(--color-text-1)] italic underline underline-offset-9' : 'text-[var(--color-nav)]' }} group w-auto text-left tracking-widest lg:text-right"
     aria-current="{{ $active ? 'page' : 'false' }}"
     {{ $attributes }}
 >
     {{ $slot }}
-</a>
+</a> 
